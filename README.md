@@ -1,4 +1,4 @@
-# HRMS
+# Human Resource Management System
 
 Task 1 - 
 a) Setup all the three project the way I did it.
