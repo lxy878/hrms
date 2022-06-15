@@ -5,13 +5,10 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.handler.UserRoleAuthorizationInterceptor;
 
 import com.hrms.gateservice.domain.Role;
 import com.hrms.gateservice.domain.User;
-import com.hrms.gateservice.repository.RoleRepository;
 import com.hrms.gateservice.repository.UserRepository;
 
 @Service

@@ -8,6 +8,11 @@ public class ViewController {
     
     @GetMapping({"/", "/index","/home"})
     private String getIndex(){
-        return "index";
+        return "home";
+    }
+
+    @GetMapping("/forAdmin")
+    private String getAdmin(){
+        return "register";
     }
 }
