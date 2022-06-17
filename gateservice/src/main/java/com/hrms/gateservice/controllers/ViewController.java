@@ -10,9 +10,4 @@ public class ViewController {
     private String getIndex(){
         return "home";
     }
-
-    @GetMapping("/forAdmin")
-    private String getAdmin(){
-        return "register";
-    }
 }

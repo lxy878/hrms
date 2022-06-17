@@ -39,6 +39,6 @@
        <input class="data_role" type="checkbox" name="role" value="ROLE_ADMIN">Admin<br> --%>
         <input type="submit" value="register" id="submit"><br>
     </div>
-    <a src="/">Home</a>
+    <a href="/">Home</a>
 </body>
 </html>
