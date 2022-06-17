@@ -10,13 +10,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @SessionAttributes("user")
-public class UserController {
+public class UserViewController {
     
     @RequestMapping(value="/login")
 	public String login(@RequestParam(required=false) String logout, @RequestParam(required=false) String error, HttpServletRequest httpServletRequest,
@@ -45,4 +46,9 @@ public class UserController {
  		return "accessDenied";
 
  	}
+
+	 @GetMapping({"/", "/index","/home"})
+	 private String getIndex(){
+		 return "home";
+	 }
 }

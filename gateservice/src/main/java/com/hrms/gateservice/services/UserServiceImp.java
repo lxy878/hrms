@@ -2,12 +2,10 @@ package com.hrms.gateservice.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hrms.gateservice.domain.Role;
 import com.hrms.gateservice.domain.User;
 import com.hrms.gateservice.repository.UserRepository;
 
@@ -25,12 +23,7 @@ public class UserServiceImp implements UserService{
 
     @Override
     public User save(User u) {
-        User newUser = new User();
-        newUser.setEmail(u.getEmail());
-        newUser.setName(u.getName());
-        Set<Role> roles = u.getRoles();
-        // to be continue
-        return null;
+        return userRepository.save(u);
     }
 
     @Override
