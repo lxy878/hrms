@@ -14,9 +14,9 @@ When you save a entry would go in Users Table & role is assinged as ROLE_USER an
 
 b) Implement User Attendnace functionality - 
  attendanceLog - empCode, logDate, logType
-6779 , sysdate with time, IN
+                6779 , sysdate with time, IN
 When you logout you will enter in the same table same entyr
-6779 , sysdate with time, OUT
+                6779 , sysdate with time, OUT
 at the same time you will have to enter into another table that
 empAttendance - empCode, attendanceDate, Intime, OutTime, attendance
 Logic is
