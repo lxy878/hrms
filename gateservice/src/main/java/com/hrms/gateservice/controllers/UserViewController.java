@@ -53,7 +53,7 @@ public class UserViewController {
 				ObjectMapper mapper = new ObjectMapper();
 				JsonNode data = mapper.convertValue(context, JsonNode.class);
 				// send request to the user micro-service
-				userClient.userLogIn(data, "/empLogout");
+				userClient.userLog(data, "/empLogout");
 
 				new SecurityContextLogoutHandler().logout(httpServletRequest, httpServletResponse, auth);
 			}
@@ -85,7 +85,7 @@ public class UserViewController {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode data = mapper.convertValue(context, JsonNode.class);
 		// send request to the user micro-service
-		JsonNode respond = userClient.userLogIn(data, "/empLogin");
+		JsonNode respond = userClient.userLog(data, "/empLogin");
 		model.addAttribute("uId", user.getId());
 		model.addAttribute("respond", respond);
 		return "home";

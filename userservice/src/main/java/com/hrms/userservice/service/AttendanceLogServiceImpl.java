@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hrms.userservice.domain.AttendanceLog;
+import com.hrms.userservice.domain.EmpAttendance;
 import com.hrms.userservice.repository.AttendanceLogRepository;
 
 @Service
@@ -14,34 +15,40 @@ public class AttendanceLogServiceImpl implements AttendanceLogService{
     @Autowired
     AttendanceLogRepository log;
 
+    @Autowired
+    EmpAttendanceService empAttendanceService;
+
     @Override
     public AttendanceLog logIn(String empCode) {
-        String date = dateTimeToString(LocalDateTime.now(), "yyyy/MM/dd HH:mm:ss");
+        String dateTime = dateTimeToString(LocalDateTime.now(), "yyyy/MM/dd HH:mm:ss");
         AttendanceLog aLog = new AttendanceLog();
         aLog.setEmpCode(empCode);
-        aLog.setLogDate(date);
+        aLog.setLogDate(dateTime);
         aLog.setLogType("IN");
+
+        EmpAttendance empAtt = empAttendanceService.empAttendanceForLogIn(empCode, dateTime);
+        if(empAtt == null) return null;
+
         return log.save(aLog);
         
     }
     
     @Override
     public AttendanceLog logOut(String empCode) {
-        String date = dateTimeToString(LocalDateTime.now(), "yyyy/MM/dd HH:mm:ss");
+        String dateTime = dateTimeToString(LocalDateTime.now(), "yyyy/MM/dd HH:mm:ss");
         AttendanceLog aLog = new AttendanceLog();
         aLog.setEmpCode(empCode);
-        aLog.setLogDate(date);
+        aLog.setLogDate(dateTime);
         aLog.setLogType("OUT");
+
+        EmpAttendance empAtt = empAttendanceService.empAttendanceForLogOut(empCode, dateTime);
+        if(empAtt == null) return null;
+
         return log.save(aLog);
     }
 
-    private LocalDateTime stringToDateTime(String dt, String pattern){
-
-        return null;
-    }
-
     private String dateTimeToString(LocalDateTime ldt, String pattern){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
         return dtf.format(ldt);
     }
     

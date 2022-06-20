@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class UserClient {
     private String baseUrl = "http://localhost:8383";
 
-    public JsonNode userLogIn(JsonNode json, String path){
+    public JsonNode userLog(JsonNode json, String path){
         
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
