@@ -10,7 +10,10 @@ pageEncoding="ISO-8859-1"%>
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link rel='stylesheet' href='/css/home.css'>
+<link rel="stylesheet" href="/css/calendar.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/js/home.js"></script>
 </head>
@@ -142,31 +145,59 @@ pageEncoding="ISO-8859-1"%>
     
     <!-- Middle Column -->
     <div class="w3-col m7">
-    
+
        <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">Attendence</h6>
-              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+              <h3 class="w3-opacity">My Attendance</h3>
+              <table id="attendance-table">
+                <tr>
+                  <th>Date</th>
+                  <th>In</th>
+                  <th>Out</th>
+                  <th>Attendance</th>
+                </tr>
+              </table>
+              <%-- calendar --%>
+              <%-- <div class="wrapper">
+                <div class="container-calendar">
+                    <h3 id="monthAndYear"></h3>
+                    <div class="button-container-calendar">
+                        <button id="previous" onclick="previous()">&#8249;</button>
+                        <button id="next" onclick="next()">&#8250;</button>
+                    </div>
+                    <table class="table-calendar" id="calendar" data-lang="en">
+                        <thead id="thead-month"></thead>
+                        <tbody id="calendar-body"></tbody>
+                    </table>
+                    <div class="footer-container-calendar">
+                        <label for="month">Jump To: </label>
+                        <select id="month" onchange="jump()">
+                            <option value=0>Jan</option>
+                            <option value=1>Feb</option>
+                            <option value=2>Mar</option>
+                            <option value=3>Apr</option>
+                            <option value=4>May</option>
+                            <option value=5>Jun</option>
+                            <option value=6>Jul</option>
+                            <option value=7>Aug</option>
+                            <option value=8>Sep</option>
+                            <option value=9>Oct</option>
+                            <option value=10>Nov</option>
+                            <option value=11>Dec</option>
+                        </select>
+                        <select id="year" onchange="jump()"></select>       
+                    </div>
+                </div>
+              </div> --%>
+              <%-- end calendar --%>
             </div>
           </div>
         </div>
       </div>
+      <script src="/js/calendar.js"></script>
 
-      <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">Social Media template by w3.css</h6>
-              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
-            </div>
-          </div>
-        </div>
-      </div>
-      
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <span class="w3-right w3-opacity">1 min</span>
