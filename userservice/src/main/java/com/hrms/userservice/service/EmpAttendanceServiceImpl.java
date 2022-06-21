@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class EmpAttendanceServiceImpl implements EmpAttendanceService{
             // update lastest log out time
             empAtt.setOutTime(parts[1]);
             //  calculate logout time - login time
-            String att = calculateAttendence(empAtt.getInTime(), parts[1]);
+            String att = calculateAttendance(empAtt.getInTime(), parts[1]);
             // set attendance 
             empAtt.setAttendance(att);
             // save empAtt
@@ -57,19 +58,24 @@ public class EmpAttendanceServiceImpl implements EmpAttendanceService{
         return empAtt;
     }
 
-    private String calculateAttendence(String inTime, String outTime){
+    @Override
+    public List<EmpAttendance> getAttendance(String empCode) {
+        return empAttendanceRepository.findAllByEmpCode(empCode);
+    }
+
+    private String calculateAttendance(String inTime, String outTime){
         Date outDate = stringToDate(outTime, "HH:mm:ss");
         Date inDate = stringToDate(inTime, "HH:mm:ss");
         Long workHours = (outDate.getTime()-inDate.getTime())/1000/3600;
-        String attendence = "";
+        String attendance = "";
         if(workHours>9){
-            attendence = "Present";
+            attendance = "Present";
         }else if(workHours>=4){
-            attendence = "Half";
+            attendance = "Half";
         }else{
-            attendence = "Absent";
+            attendance = "Absent";
         }
-        return attendence;
+        return attendance;
     }
 
     private Date stringToDate(String time, String pattern){

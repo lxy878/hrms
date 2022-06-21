@@ -1,7 +1,10 @@
 package com.hrms.userservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,6 +52,18 @@ public class AttendanceController {
 
         ObjectMapper mapper = new ObjectMapper();
         return mapper.convertValue(alog, JsonNode.class);
+    }
+
+    @GetMapping("/getAttendance/{uId}")
+    private JsonNode getAttendance(@PathVariable Long uId){
+        Employee emp = employeeService.findByEmailId(uId);
+        String empCode = emp.getEmpCode();
+        List<EmpAttendance> attendance = empAttendanceService.getAttendance(empCode);
+
+        // if no uId
+
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.convertValue(attendance, JsonNode.class);
     }
     
 }
