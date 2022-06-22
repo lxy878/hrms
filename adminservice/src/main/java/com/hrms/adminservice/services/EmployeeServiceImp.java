@@ -21,6 +21,9 @@ public class EmployeeServiceImp implements EmployeeService{
     @Autowired
     EmployeeRepository employeeRepository;
 
+    @Autowired
+    EmailService emailService;
+
     @Override
     public Employee save(JsonNode emp) {
         Employee newEmp = new Employee();
@@ -40,6 +43,8 @@ public class EmployeeServiceImp implements EmployeeService{
         User newUser = userServiceImp.save(name, emp.get("email").asText(), empCode);
         if(newUser == null) return null;
         newEmp.setEmailId(newUser.getId());
+        // send Email
+        emailService.sendEmail(newUser);
         
         return employeeRepository.save(newEmp);
     }
