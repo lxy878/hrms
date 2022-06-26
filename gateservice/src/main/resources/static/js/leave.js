@@ -5,7 +5,7 @@ $(function(){
         setDays()
     })
 
-    $("#applyAttendance").on("click", function(){
+    $("#applyLeave").on("click", function(){
         const data = {uId: $("#username").attr("uId"), }
         const children = $("#leaveForm").children(".data")
         for(let c of children){

@@ -14,11 +14,16 @@ public class AdminViewController {
 
     @GetMapping("/admin")
     private String getAdmin(){
-        return "homeAdmit";
+        return "homeAdmin";
     }
 
     @GetMapping("/admin/register")
     private String getRegister(){
         return "register";
+    }
+
+    @GetMapping("/admin/empLeaves")
+    private String getEmpLeaves(){
+        return "leaveAdmin";
     }
 }

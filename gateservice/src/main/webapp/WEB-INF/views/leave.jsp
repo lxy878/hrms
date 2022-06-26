@@ -184,9 +184,9 @@ pageEncoding="ISO-8859-1"%>
         Days: <input class="data" type="number" name="days" id="days" disabled required="required"> <br>
         Contact Number: <input class="data" type="number" name="contactNumber"> <br>
         Replacement Name: <input class="data" type="text" name="replacementName" required="required" placeholder="employee code"> <br>
-        <p><label for="w3review">Reason:</label></p>
+        <p><label>Reason:</label></p>
         <textarea class="data" name="reason" rows="4" cols="45"></textarea><br>
-        <button id="applyAttendance" disabled >Apply</button>
+        <button id="applyLeave" disabled >Apply</button>
         <br><br>
       </div>
       

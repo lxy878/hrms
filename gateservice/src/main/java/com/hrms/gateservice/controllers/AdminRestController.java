@@ -3,6 +3,7 @@ package com.hrms.gateservice.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,4 +21,11 @@ public class AdminRestController {
     private ResponseEntity<JsonNode> addEmp(@RequestBody JsonNode json){
         return new ResponseEntity<>(adminClient.addUser(json), HttpStatus.OK);
     }
+
+    @GetMapping("/getEmpLeaves")
+    private ResponseEntity<JsonNode> getLeaves(){
+        JsonNode respond = adminClient.getRequest("/getEmpLeaves");
+        return new ResponseEntity<>(respond, HttpStatus.OK);
+    }
+    
 }
