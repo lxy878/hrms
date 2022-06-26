@@ -25,3 +25,5 @@ if greater then or equal to 4 then attendance is Half
 if less then 4 then Absent 
 
 c) View Attendance on a Home Page
+
+Task 3 -  Employee Leaves

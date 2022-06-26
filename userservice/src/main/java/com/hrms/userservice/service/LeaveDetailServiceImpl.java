@@ -2,6 +2,7 @@ package com.hrms.userservice.service;
 
 import java.time.LocalDateTime;
 
+import org.aspectj.internal.lang.annotation.ajcDeclareAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,9 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
     @Autowired
     LeaveDetailRepository leaveDetailRepository;
 
+    @Autowired
+    EmpLeaveService empLeaveService;
+
     @Override
     public LeaveDetail save(JsonNode json, Employee emp) {
         LeaveDetail newLeaveDetail = new LeaveDetail();
@@ -42,9 +46,9 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
         newLeaveDetail.setProcessCode(processEmpCode);
         String processName = employeeService.findByEmpCode(processEmpCode).getName();
         newLeaveDetail.setProcessName(processName);
-
         // reduce emp leave balance
-
+        empLeaveService.updateEmpLeave(newLeaveDetail.getEmpCode(), newLeaveDetail.getLeaveType(), newLeaveDetail.getDays());
+        
         return leaveDetailRepository.save(newLeaveDetail);
     }
     

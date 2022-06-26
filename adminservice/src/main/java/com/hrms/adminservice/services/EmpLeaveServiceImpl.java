@@ -30,4 +30,16 @@ public class EmpLeaveServiceImpl implements EmpLeaveService{
         leave.setLeaveApplied(0.0);
         return empLeaveRepository.save(leave);
     }
+    
+    @Override
+    public EmpLeave updateEmpLeave(String empCode, String leaveType, double days, String action){
+        EmpLeave leave = empLeaveRepository.findByEmpCodeAndLeaveType(empCode, leaveType);
+        if(action.compareTo("approved")==0){
+            leave.setLeaveApplied(leave.getLeaveApplied()+days);
+        }else{
+            leave.setLeaveBalance(leave.getLeaveBalance()+days);
+        }
+        
+        return empLeaveRepository.save(leave);
+    }
 }

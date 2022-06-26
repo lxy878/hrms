@@ -8,4 +8,5 @@ import com.hrms.userservice.domain.EmpLeave;
 
 public interface EmpLeaveRepository extends JpaRepository<EmpLeave,Long>{
     public List<EmpLeave> findAllByEmpCode(String empCode);
+    public EmpLeave findByEmpCodeAndLeaveType(String empCode, String leaveType);
 }

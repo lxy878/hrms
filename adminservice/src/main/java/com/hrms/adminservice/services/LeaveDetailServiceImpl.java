@@ -19,6 +19,9 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
     @Autowired
     EmployeeService employeeService;
 
+    @Autowired
+    EmpLeaveService empLeaveService;
+
     @Override
     public List<LeaveDetail> getEmpLeaves() {
         return leaveDetailRepository.findAll();
@@ -37,10 +40,8 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
         ld.setApproverName(approver.getName());
         ld.setStatus(json.get("status").asText());
 
-        
-        // find empLeave by empCode and type
-        
         // update empLeave
+        empLeaveService.updateEmpLeave(ld.getEmpCode(), ld.getLeaveType(), ld.getDays(), ld.getAction());
         // save
         return leaveDetailRepository.save(ld);
     }

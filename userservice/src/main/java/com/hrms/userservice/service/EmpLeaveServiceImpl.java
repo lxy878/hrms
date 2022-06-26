@@ -17,4 +17,11 @@ public class EmpLeaveServiceImpl implements EmpLeaveService{
     public List<EmpLeave> getEmpLeaves(String empCode){
         return empLeaveRepository.findAllByEmpCode(empCode);
     }
+
+    @Override
+    public EmpLeave updateEmpLeave(String empCode, String leaveType, double days){
+        EmpLeave leave = empLeaveRepository.findByEmpCodeAndLeaveType(empCode, leaveType);
+        leave.setLeaveBalance(leave.getLeaveBalance()-days);
+        return empLeaveRepository.save(leave);
+    }
 }
