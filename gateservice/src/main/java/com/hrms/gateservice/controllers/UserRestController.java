@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -20,5 +22,11 @@ public class UserRestController {
     private ResponseEntity<JsonNode> getAttendance(@PathVariable Long uId){
         JsonNode json = userClient.getAttendance("/getAttendance/"+uId);
         return new ResponseEntity<>(json, HttpStatus.OK);
+    }
+
+    @PostMapping("/submitLeave")
+    private ResponseEntity<JsonNode> submitLeave(@RequestBody JsonNode json){
+        JsonNode respond = userClient.postRequest(json, "/submitLeave");
+        return new ResponseEntity<>(respond, HttpStatus.OK);
     }
 }

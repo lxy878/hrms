@@ -4,4 +4,5 @@ import com.hrms.userservice.domain.Employee;
 
 public interface EmployeeService {
     public Employee findByEmailId(Long id);
+    public Employee findByEmpCode(String empCode);
 }

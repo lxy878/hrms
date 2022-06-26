@@ -42,5 +42,21 @@ public class UserClient {
         JsonNode json = mapper.convertValue(body, JsonNode.class);
         return json;
     }
+
+    public JsonNode postRequest(JsonNode json, String path){
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<String> entity = new HttpEntity<>(json.toString(), headers);
+        
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Object> responseEntity = restTemplate.postForEntity(baseUrl+path, entity, Object.class);
+    
+        Object body = responseEntity.getBody();
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode respond = mapper.convertValue(body, JsonNode.class);
+    
+        return respond;
+    }
 }
 

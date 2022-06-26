@@ -47,6 +47,7 @@ public class AttendanceLogServiceImpl implements AttendanceLogService{
         return log.save(aLog);
     }
 
+    // replace
     private String dateTimeToString(LocalDateTime ldt, String pattern){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
         return dtf.format(ldt);

@@ -2,8 +2,6 @@ package com.hrms.userservice.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -88,11 +86,5 @@ public class EmpAttendanceServiceImpl implements EmpAttendanceService{
         }
         return date;
     }
-
-    private String dateTimeToString(LocalDateTime ldt, String pattern){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(pattern);
-        return dtf.format(ldt);
-    }
    
-    
 }

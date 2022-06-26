@@ -14,6 +14,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -84,10 +85,16 @@ public class UserViewController {
 
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode data = mapper.convertValue(context, JsonNode.class);
-		// send request to the user micro-service
+		// send request to the user microservice
 		JsonNode respond = userClient.userLog(data, "/empLogin");
 		model.addAttribute("uId", user.getId());
 		model.addAttribute("respond", respond);
 		return "home";
+	 }
+
+	 @GetMapping("/leave/{uId}")
+	 private String leave(@PathVariable int uId, Model model){
+		model.addAttribute("uId", uId);
+		return "leave";
 	 }
 }
