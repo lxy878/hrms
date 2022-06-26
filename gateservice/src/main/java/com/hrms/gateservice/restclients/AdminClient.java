@@ -54,11 +54,11 @@ public class AdminClient {
         
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Object> responseEntity = restTemplate.postForEntity(baseUrl+path, entity, Object.class);
-    
+        System.out.println("back");
         Object body = responseEntity.getBody();
         ObjectMapper mapper = new ObjectMapper();
         JsonNode respond = mapper.convertValue(body, JsonNode.class);
-    
+        
         return respond;
     }
 

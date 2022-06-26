@@ -28,4 +28,9 @@ public class AdminRestController {
         return new ResponseEntity<>(respond, HttpStatus.OK);
     }
     
+    @PostMapping("/updateEmpLeave")
+    private ResponseEntity<JsonNode> updateEmpLeave(@RequestBody JsonNode json){
+        JsonNode respond = adminClient.postRequest(json, "/updateLeave");
+        return new ResponseEntity<>(respond, HttpStatus.OK);
+    }
 }

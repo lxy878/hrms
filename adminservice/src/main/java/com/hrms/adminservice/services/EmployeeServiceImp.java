@@ -53,5 +53,10 @@ public class EmployeeServiceImp implements EmployeeService{
         
         return employeeRepository.save(newEmp);
     }
+
+    @Override
+    public Employee findByEmailId(Long uId) {
+        return employeeRepository.findByEmailId(uId);
+    }
     
 }

@@ -1,5 +1,31 @@
 $(function(){
     loadLeaveTable()
+    
+    $("#leaveTbody").on('click', '.button',function(){
+        const button = $(this)
+        const tr = button.parent().parent()
+        const data = {
+            action: button.attr("value"),
+            status: button.attr("value"),
+            approverCode: $("#username").attr("uId"),
+            leaveId: tr.attr("leaveId")
+        }
+        $.ajax({
+            url: `http://localhost:8080/updateEmpLeave`,
+            type:"post",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(data),
+            cache: false
+        }).done(function(leave){
+            console.log(leave)
+            loadLeaveTable()
+            
+        }).fail(function (xhr, status, error) {
+            console.log(`${xhr.status}: ${xhr.statusText}`)
+        })
+    })
+    
 })
 
 function loadLeaveTable(){

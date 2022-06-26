@@ -28,7 +28,6 @@ public class LeaveController {
     
     @PostMapping("/updateLeave")
     private LeaveDetail updateLeave(@RequestBody JsonNode json){
-        LeaveDetail leave = leaveDetailService.updateLeave(json);
-        return null;
+        return leaveDetailService.updateLeave(json);
     } 
 }

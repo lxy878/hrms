@@ -35,7 +35,6 @@ function loadLeaveTable(){
         contentType: "application/json",
         cache: false
     }).done(function(leaves){
-        console.log(leaves)
         const table = $("#leaveTbody")
         table.empty()
         for(let l of leaves){
@@ -62,10 +61,10 @@ function setDays(){
     const days= countDays($("#fromDate").val(), $("#toDate").val(), $("#leaveFor").val())
     $("#days").attr("value", days);
     if(days <= 0) {
-        $("#applyAttendance").prop("disabled", true)
+        $("#applyLeave").prop("disabled", true)
         return 
     }
-    $("#applyAttendance").prop("disabled", false)
+    $("#applyLeave").prop("disabled", false)
 }
 
 function countDays(fromDate, toDate, leaveFor){

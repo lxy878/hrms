@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.hrms.adminservice.domain.Employee;
 import com.hrms.adminservice.domain.LeaveDetail;
 import com.hrms.adminservice.repository.LeaveDetailRepository;
 
@@ -14,6 +15,9 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
 
     @Autowired
     LeaveDetailRepository leaveDetailRepository;
+
+    @Autowired
+    EmployeeService employeeService;
 
     @Override
     public List<LeaveDetail> getEmpLeaves() {
@@ -24,16 +28,21 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
     public LeaveDetail updateLeave(JsonNode json) {
         
         // leaveId
-        leaveDetailRepository.findById((long)1).get();
-        // updates
-        json.get("action").asText();
-        json.get("approverCode").asText();
-        json.get("approverName");
-        // change status as action
+        Long leaveId = json.get("leaveId").asLong();
+        LeaveDetail ld = leaveDetailRepository.findById(leaveId).get();
+        ld.setAction(json.get("action").asText());
+        System.out.println(json.get("approverCode").asLong());
+        Employee approver = employeeService.findByEmailId(json.get("approverCode").asLong());
+        ld.setApproverCode(approver.getEmpCode());
+        ld.setApproverName(approver.getName());
+        ld.setStatus(json.get("status").asText());
+
+        
         // find empLeave by empCode and type
+        
         // update empLeave
         // save
-        return null;
+        return leaveDetailRepository.save(ld);
     }
     
 }

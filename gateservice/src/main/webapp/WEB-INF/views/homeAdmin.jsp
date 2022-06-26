@@ -77,8 +77,7 @@
           <div class="w3-card w3-round w3-white">
             <div class="w3-container">
               <h4 class="w3-center">My Profile</h4>
-              <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px"
-                  alt="Avatar"></p>
+              <h5 class="w3-center" id="username" uid=${uId}>Name</h5>
               <hr>
               <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Designer, UI</p>
               <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
