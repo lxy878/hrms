@@ -58,5 +58,17 @@ public class UserClient {
     
         return respond;
     }
+
+    public JsonNode getRequest(String path){
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Object> responseEntity = restTemplate.getForEntity(baseUrl+path, Object.class);
+        Object body = responseEntity.getBody();
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode json = mapper.convertValue(body, JsonNode.class);
+        return json;
+    }
 }
 

@@ -144,7 +144,7 @@ pageEncoding="ISO-8859-1"%>
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h3 class="w3-opacity">My Leaves</h3>
-              <table id="attendance-table">
+              <table>
                 <tr>
                   <th>Leave_Type</th>
                   <th>Yearly Allowance</th>
@@ -152,13 +152,15 @@ pageEncoding="ISO-8859-1"%>
                   <th>Leave Applied</th>
                   <th>Leave Balance</th>
                 </tr>
-                <tr>
-                  <td>PL</td>
-                  <td>10</td>
-                  <td>10.0</td>
-                  <td>5.5</td>
-                  <td>3.5</td>
-                </tr>
+                <tbody id="leaveTbody">
+                  <tr leaveId=-1>
+                    <td>PL</td>
+                    <td>10</td>
+                    <td>10.0</td>
+                    <td>5.5</td>
+                    <td>3.5</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
