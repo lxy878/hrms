@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.hrms.adminservice.component.DateComponent;
 import com.hrms.adminservice.domain.Employee;
 import com.hrms.adminservice.domain.LeaveDetail;
 import com.hrms.adminservice.repository.LeaveDetailRepository;
@@ -22,6 +23,12 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
     @Autowired
     EmpLeaveService empLeaveService;
 
+    @Autowired
+    DateComponent dateComponent;
+
+    @Autowired
+    EmpAttendanceService empAttendanceService;
+    
     @Override
     public List<LeaveDetail> getEmpLeaves() {
         return leaveDetailRepository.findAll();
@@ -42,8 +49,23 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
 
         // update empLeave
         empLeaveService.updateEmpLeave(ld.getEmpCode(), ld.getLeaveType(), ld.getDays(), ld.getAction());
+
+        // create attendances with leaves
+        long td = dateComponent.stringToDate(ld.getToDate(), "yyyy-MM-dd").getTime();
+        long fd = dateComponent.stringToDate(ld.getFromDate(), "yyyy-MM-dd").getTime();
+        int days = dateComponent.getDays(fd, td);
+        if(days==ld.getDays()){
+            // create attendance 
+            String date = ld.getFromDate();
+            for(int i=0; i<days; i++){
+                empAttendanceService.createEmpAttendance(ld.getEmpCode(), date, "leave");
+                date = dateComponent.incrementDay(date, 1);
+            }
+        }
         // save
         return leaveDetailRepository.save(ld);
     }
+
+    
     
 }

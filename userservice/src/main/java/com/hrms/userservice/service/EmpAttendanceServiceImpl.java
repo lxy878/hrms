@@ -29,6 +29,7 @@ public class EmpAttendanceServiceImpl implements EmpAttendanceService{
             empAtt.setEmpCode(empCode);
             empAtt.setAttendanceDate(parts[0]);
             empAtt.setInTime(parts[1]);
+            empAtt.setAttendance("");
             // save empAtt
             empAttendanceRepository.save(empAtt);
         }
@@ -42,7 +43,7 @@ public class EmpAttendanceServiceImpl implements EmpAttendanceService{
 
         // find empAttendance by date and empCode
         EmpAttendance empAtt = empAttendanceRepository.findByEmpCodeAndAttendanceDate(empCode, parts[0]);
-        if(empAtt != null){
+        if(empAtt != null && empAtt.getAttendance().compareTo("leave") != 0){
             // update lastest log out time
             empAtt.setOutTime(parts[1]);
             //  calculate logout time - login time
@@ -77,7 +78,7 @@ public class EmpAttendanceServiceImpl implements EmpAttendanceService{
     }
 
     private Date stringToDate(String time, String pattern){
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat(pattern);
         Date date=null;
         try{
             date = format.parse(time);
