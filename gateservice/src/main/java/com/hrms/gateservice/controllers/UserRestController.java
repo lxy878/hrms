@@ -35,4 +35,10 @@ public class UserRestController {
         JsonNode json = userClient.getRequest("/getLeaves/"+uId);
         return new ResponseEntity<>(json, HttpStatus.OK);
     }
+
+    @GetMapping("/getApprover/{uId}")
+    private ResponseEntity<JsonNode> getApprover(@PathVariable Long uId){
+        JsonNode json = userClient.getRequest("/getApprover/"+uId);
+        return new ResponseEntity<>(json, HttpStatus.OK);
+    }
 }

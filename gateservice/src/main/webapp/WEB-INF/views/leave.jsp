@@ -184,6 +184,8 @@ pageEncoding="ISO-8859-1"%>
         Days: <input class="data" type="number" name="days" id="days" disabled required="required"> <br>
         Contact Number: <input class="data" type="number" name="contactNumber"> <br>
         Replacement Name: <input class="data" type="text" name="replacementName" required="required" placeholder="employee code"> <br>
+        Approver Name: <input class="data" id="approverName" type="text" name="approverName" disabled>
+        <input class="data" id="approverCode" type="text" name="approverCode" disabled hidden>
         <p><label>Reason:</label></p>
         <textarea class="data" name="reason" rows="4" cols="45"></textarea><br>
         <button id="applyLeave" disabled >Apply</button>

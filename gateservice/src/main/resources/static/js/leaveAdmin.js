@@ -29,8 +29,9 @@ $(function(){
 })
 
 function loadLeaveTable(){
+    const uId = $("#username").attr("uid")
     $.ajax({
-        url: `http://localhost:8080/getEmpLeaves`,
+        url: `http://localhost:8080/getEmpLeaves/${uId}`,
         type:"get",
         contentType: "application/json",
         cache: false

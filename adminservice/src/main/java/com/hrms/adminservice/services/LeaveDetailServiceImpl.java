@@ -30,8 +30,8 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
     EmpAttendanceService empAttendanceService;
     
     @Override
-    public List<LeaveDetail> getEmpLeaves() {
-        return leaveDetailRepository.findAll();
+    public List<LeaveDetail> getEmpLeaves(String approverCode) {
+        return leaveDetailRepository.findAllByApproverCode(approverCode);
     }
 
     @Override

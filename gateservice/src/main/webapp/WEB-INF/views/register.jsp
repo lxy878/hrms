@@ -55,6 +55,7 @@
             State: <input class="data" type="text" name="state"> <br>
 		    Zip Code: <input class="data" type="number" name="zipCode"> <br>
         </div>
+        Supervisor: <input class="data" type="text" name="approverCode" placeholder="Emp Code"> <br>
         <input type="submit" value="register" id="submit"><br>
     </div>
     <a href="/admin">Home</a>

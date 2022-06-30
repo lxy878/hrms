@@ -1,6 +1,8 @@
 $(function(){
     loadLeaveTable()
 
+    getApprover()
+
     $("input[type=date], #leaveFor").on("change", function(){
         setDays()
     })
@@ -11,6 +13,7 @@ $(function(){
         for(let c of children){
             data[$(c).attr("name")] = $(c).val()
         }
+        
         $.ajax({
             url: 'http://localhost:8080/submitLeave',
             type:"post",
@@ -26,6 +29,22 @@ $(function(){
         })
     })
 })
+
+function getApprover(){
+    const uId = $("#username").attr("uId")
+    $.ajax({
+        url: `http://localhost:8080/getApprover/${uId}`,
+        type:"get",
+        contentType: "application/json",
+        cache: false
+    }).done(function(approver){
+        $("#approverName").attr("value", approver.name)
+        $("#approverCode").attr("value", approver.empCode)
+        console.log(approver)
+    }).fail(function (xhr, status, error) {
+        console.log(`${xhr.status}: ${xhr.statusText}`)
+    })
+}
 
 function loadLeaveTable(){
     const uId = $("#username").attr("uId")

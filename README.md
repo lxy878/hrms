@@ -26,5 +26,11 @@ if less then 4 then Absent
 
 c) View Attendance on a Home Page
 
-Task 3 -  Employee Leaves
-update attendance with leave
+Task 3 -  
+Employee Leaves
+update leaves to attendance table
+
+Task 4 - 
+add approver id to each user
+
+add feature that spend email to approvers if there are leaves that is over 5 days

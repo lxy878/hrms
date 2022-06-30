@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,9 +23,9 @@ public class AdminRestController {
         return new ResponseEntity<>(adminClient.addUser(json), HttpStatus.OK);
     }
 
-    @GetMapping("/getEmpLeaves")
-    private ResponseEntity<JsonNode> getLeaves(){
-        JsonNode respond = adminClient.getRequest("/getEmpLeaves");
+    @GetMapping("/getEmpLeaves/{uId}")
+    private ResponseEntity<JsonNode> getLeaves(@PathVariable Long uId){
+        JsonNode respond = adminClient.getRequest("/getEmpLeaves/"+uId);
         return new ResponseEntity<>(respond, HttpStatus.OK);
     }
     

@@ -21,9 +21,18 @@ public class Employee {
     private int mobile;
     private int alternateMobile;
     private Long emailId;
-    
+    private String approverCode;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
+
+    public String getApproverCode() {
+        return approverCode;
+    }
+
+    public void setApproverCode(String approverCode) {
+        this.approverCode = approverCode;
+    }
 
     public Long getEmailId() {
         return emailId;

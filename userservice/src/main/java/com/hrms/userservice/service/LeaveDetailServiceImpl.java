@@ -47,6 +47,9 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
         newLeaveDetail.setProcessCode(processEmpCode);
         String processName = employeeService.findByEmpCode(processEmpCode).getName();
         newLeaveDetail.setProcessName(processName);
+
+        newLeaveDetail.setApproverName(json.get("approverName").asText());
+        newLeaveDetail.setApproverCode(json.get("approverCode").asText());
         // reduce emp leave balance
         empLeaveService.updateEmpLeave(newLeaveDetail.getEmpCode(), newLeaveDetail.getLeaveType(), newLeaveDetail.getDays());
 

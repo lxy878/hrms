@@ -38,6 +38,7 @@ public class EmployeeServiceImp implements EmployeeService{
         newEmp.setAlternateMobile(emp.get("alternateMobile").asInt());
         newEmp.setBirthDate(emp.get("birthDate").asText());
         newEmp.setMaritalStatus(emp.get("maritalStatus").asText());
+        newEmp.setApproverCode(emp.get("approverCode").asText());
         // address save
         Address newAddress = addressServiceImp.save(emp.get("address"));
         if(newAddress == null) return null;

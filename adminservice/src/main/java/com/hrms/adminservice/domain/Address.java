@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -18,17 +17,6 @@ public class Address {
     private int zipCode;
     private String residenceNumber;
     private String locality;
-
-    @OneToOne(mappedBy = "address")
-    private Employee emp;
-
-    public Employee getEmp() {
-        return emp;
-    }
-
-    public void setEmp(Employee emp) {
-        this.emp = emp;
-    }
 
     public String getLocality() {
         return locality;
