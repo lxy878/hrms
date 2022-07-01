@@ -50,7 +50,7 @@ public class EmployeeServiceImp implements EmployeeService{
         // set default yearly leaves
         empLeaveService.setDefaultLeaves(empCode);
         // send Email
-        emailService.sendEmail(newUser);
+        emailService.sendEmail(newUser.getEmail(), "Your Company Log In Information", "Account: "+newUser.getName()+"\nEmail: "+newUser.getEmail()+"\nPassword: "+newUser.getPassword()+"\n");
         
         return employeeRepository.save(newEmp);
     }

@@ -5,21 +5,20 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import com.hrms.adminservice.domain.User;
-
 @Service
 public class EmailService {
     @Autowired
     JavaMailSender javaMailSender;
 
-    public void sendEmail(User user){
+    public void sendEmail(String email, String subject, String message){
 
         SimpleMailMessage msg = new SimpleMailMessage();
-        msg.setTo(user.getEmail());
+        msg.setTo(email);
 
-        msg.setSubject("Your Company Log In Information");
-        msg.setText("Account: "+user.getName()+"\nEmail: "+user.getEmail()+"\nPassword: "+user.getPassword()+"\n");
+        msg.setSubject(subject);
+        msg.setText(message);
         javaMailSender.send(msg);
         
     }
+    
 }

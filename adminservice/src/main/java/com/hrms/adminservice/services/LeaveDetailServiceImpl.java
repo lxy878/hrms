@@ -66,6 +66,12 @@ public class LeaveDetailServiceImpl implements LeaveDetailService{
         return leaveDetailRepository.save(ld);
     }
 
+    @Override
+    public List<LeaveDetail> findAllOrderByAppliedDate(String empCode, String status) {
+        
+        return leaveDetailRepository.findAllByApproverCodeAndStatusOrderByAppliedDate(empCode, status);
+    }
+
     
     
 }

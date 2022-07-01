@@ -34,4 +34,10 @@ public class AdminRestController {
         JsonNode respond = adminClient.postRequest(json, "/updateLeave");
         return new ResponseEntity<>(respond, HttpStatus.OK);
     }
+
+    @GetMapping("/checkLeaves/{uId}")
+    private ResponseEntity<JsonNode> checkLeaves(@PathVariable Long uId){
+        JsonNode respond = adminClient.getRequest("/checkLeaves/"+uId);
+        return new ResponseEntity<>(respond, HttpStatus.OK);
+    }
 }

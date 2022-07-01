@@ -58,9 +58,10 @@ pageEncoding="ISO-8859-1"%>
     <div class="w3-col m3">
       <!-- Profile -->
       <div class="w3-card w3-round w3-white">
-        <div class="w3-container">
+        <div class="w3-container" id="role" role=${role}>
          <h4 class="w3-center">My Profile</h4>
          <h5 class="w3-center" id="username" uid=${uId}>Name</h5>
+         
          
          <%-- <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p> --%>
          <hr>
