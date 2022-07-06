@@ -1,10 +1,10 @@
 package com.hrms.gateservice;
 
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+
 
 public class Hash{
     
@@ -12,14 +12,14 @@ public class Hash{
         //  BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         //  System.out.println("encode: "+ encoder.encode("abc"));
         
-        Date toDate = stringToDate("2022/06/29", "yyyy/mm/dd");
-        Date fromDate = stringToDate("2022/06/30", "yyyy/mm/dd");
+        // Date toDate = stringToDate("2022/06/29", "yyyy/mm/dd");
+        // Date fromDate = stringToDate("2022/06/30", "yyyy/mm/dd");
 
-        long days = Math.abs(toDate.getTime()-fromDate.getTime());
-        System.out.println(days);
-        days = TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS);
+        // long days = Math.abs(toDate.getTime()-fromDate.getTime());
+        // System.out.println(days);
+        // days = TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS);
 
-        System.out.println(LocalDate.parse("2022-06-30").plusDays(1).toString());
+        // System.out.println(LocalDate.parse("2022-06-30").plusDays(1).toString());
     }
 
     public static Date stringToDate(String time, String pattern){

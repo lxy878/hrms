@@ -34,3 +34,16 @@ Task 4 -
 add approver id to each user
 
 add feature that spend email to approvers if there are leaves that is over 5 days
+
+Task 5 - Resignation
+
+User: resignation form
+
+Approver/Admin: 
+    approver resignation form
+    edit resignation date
+    approve
+    email
+
+System:
+    user account is invalid after the date resignation
