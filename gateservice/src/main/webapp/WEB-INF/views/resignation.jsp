@@ -12,10 +12,9 @@ pageEncoding="ISO-8859-1"%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel='stylesheet' href='/css/home.css'>
-<link rel="stylesheet" href="/css/calendar.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/js/home.js"></script>
+<script src="/js/resignation.js"> </script>
 </head>
 <body class="w3-theme-l5">
 
@@ -58,10 +57,9 @@ pageEncoding="ISO-8859-1"%>
     <div class="w3-col m3">
       <!-- Profile -->
       <div class="w3-card w3-round w3-white">
-        <div class="w3-container" id="role" role=${role}>
+        <div class="w3-container">
          <h4 class="w3-center">My Profile</h4>
          <h5 class="w3-center" id="username" uid=${uId}>Name</h5>
-         
          
          <%-- <p class="w3-center"><img src="/w3images/avatar3.png" class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p> --%>
          <hr>
@@ -83,8 +81,9 @@ pageEncoding="ISO-8859-1"%>
           <div id="Demo2" class="w3-hide w3-container">
             <p>Some other text..</p>
           </div>
-          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/leave/${uId}" class="fa fa-users fa-fw w3-margin-right"></i><a href="/resignation/${uId}" style="text-decoration: none">Resignation</a></button>
-          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/leave/${uId}" class="fa fa-users fa-fw w3-margin-right"></i><a href="/leave/${uId}" style="text-decoration: none">Leaves</a></button>
+          
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/resignation/${uId}" class="fa fa-users fa-fw w3-margin-right"></i>Resignation</button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/leave/${uId}" class="fa fa-users fa-fw w3-margin-right"></i>Leaves</button>
 
         <div id="Demo3" class="w3-hide w3-container">
          <div class="w3-row-padding">
@@ -133,15 +132,7 @@ pageEncoding="ISO-8859-1"%>
         </div>
       </div>
       <br>
-      
-      <!-- Alert Box -->
-      <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
-        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
-          <i class="fa fa-remove"></i>
-        </span>
-        <p><strong>Hey!</strong></p>
-        <p>People are looking at your profile. Find out who.</p>
-      </div>
+   
     
     <!-- End Left Column -->
     </div>
@@ -149,103 +140,43 @@ pageEncoding="ISO-8859-1"%>
     <!-- Middle Column -->
     <div class="w3-col m7">
 
-       <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h3 class="w3-opacity">My Attendance</h3>
-              <table id="attendance-table">
-                <tr>
-                  <th>Date</th>
-                  <th>In</th>
-                  <th>Out</th>
-                  <th>Attendance</th>
-                </tr>
-              </table>
-              <%-- calendar --%>
-              <%-- <div class="wrapper">
-                <div class="container-calendar">
-                    <h3 id="monthAndYear"></h3>
-                    <div class="button-container-calendar">
-                        <button id="previous" onclick="previous()">&#8249;</button>
-                        <button id="next" onclick="next()">&#8250;</button>
-                    </div>
-                    <table class="table-calendar" id="calendar" data-lang="en">
-                        <thead id="thead-month"></thead>
-                        <tbody id="calendar-body"></tbody>
-                    </table>
-                    <div class="footer-container-calendar">
-                        <label for="month">Jump To: </label>
-                        <select id="month" onchange="jump()">
-                            <option value=0>Jan</option>
-                            <option value=1>Feb</option>
-                            <option value=2>Mar</option>
-                            <option value=3>Apr</option>
-                            <option value=4>May</option>
-                            <option value=5>Jun</option>
-                            <option value=6>Jul</option>
-                            <option value=7>Aug</option>
-                            <option value=8>Sep</option>
-                            <option value=9>Oct</option>
-                            <option value=10>Nov</option>
-                            <option value=11>Dec</option>
-                        </select>
-                        <select id="year" onchange="jump()"></select>       
-                    </div>
-                </div>
-              </div> --%>
-              <%-- end calendar --%>
-            </div>
-          </div>
-        </div>
+      <div class="w3-container w3-card w3-white w3-round w3-margin" id="resignationForm">
+        <h2 class="w3-opacity">Apply Resignation</h2>
+        Applied Date: <input type="date" class="data" name="appliedDate" id="appliedDate"><br>
+        Last Working Date: <input type="date" class="data" name="lastWorkingDate" id="lastWorkingDate"><br>
+        Notice PeriodDate: <input type="date" class="data" name="noticePeriodDate"><br>
+        Recovery Days: <input type="number" class="data" name="recoveryDays" disabled value=0 id="recoveryDays"><br>
+        User Remark: <select class="data" name="userRemark">
+            <option value="Salary Issues">Salary Issues</option>
+            <option value="Better Opportunity">Better Opportunity</option>
+            <option value="Family reason">Family Reason</option>
+            <option value="Personal Reason">Personal Reason</option>
+            <option value="Relocation">Relocation</option>
+            <option value="Medical Reason">Medical Reason</option>
+            <option value="Further Studies">Further Studies</option>
+            <option value="Traveling Issue">Traveling Issue</option>
+            <option value="Performance Issue">Performance Issue</option>
+            <option value="Work Environment">Work Environment</option>
+            <option value="Process Shutdown">Process Shutdown</option>
+            <option value="Other">Other</option>
+        </select>
+        <br>
+        <p><label>Reason:</label></p>
+        <textarea class="data" name="reason" rows="4" cols="45"></textarea><br>
+        <h3>Personal Contact</h3>
+        Email: <input type="text" class="data" name="email"> <br>
+        Mobile: <input type="number" class="data" name="mobile"> <br>
+        Landline: <input type="number" class="data" name="landline"> <br>
+        Address: <input type="text" class="data" name="address"> <br>
+        <button id="applyResignation" disabled>Apply Resignation</button>
+        <br><br>
       </div>
-      <script src="/js/calendar.js"></script>
-
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">1 min</span>
-        <h4>John Doe</h4><br>
-        <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <div class="w3-row-padding" style="margin:0 -16px">
-            <div class="w3-half">
-              <img src="/w3images/lights.jpg" style="width:100%" alt="Northern Lights" class="w3-margin-bottom">
-            </div>
-            <div class="w3-half">
-              <img src="/w3images/nature.jpg" style="width:100%" alt="Nature" class="w3-margin-bottom">
-          </div>
-        </div>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>
-      
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar5.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">16 min</span>
-        <h4>Jane Doe</h4><br>
-        <hr class="w3-clear">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div>  
-
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <img src="/w3images/avatar6.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <span class="w3-right w3-opacity">32 min</span>
-        <h4>Angie Jane</h4><br>
-        <hr class="w3-clear">
-        <p>Have you seen this?</p>
-        <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button> 
-        <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button> 
-      </div> 
       
     <!-- End Middle Column -->
     </div>
     
     <!-- Right Column -->
-    <div class="w3-col m2">
+    <%-- <div class="w3-col m2">
       <div class="w3-card w3-round w3-white w3-center">
         <div class="w3-container">
           <p>Upcoming Events:</p>
@@ -272,7 +203,7 @@ pageEncoding="ISO-8859-1"%>
           </div>
         </div>
       </div>
-      <br>
+      <br> --%>
       
     <!-- End Right Column -->
     </div>

@@ -41,4 +41,10 @@ public class UserRestController {
         JsonNode json = userClient.getRequest("/getApprover/"+uId);
         return new ResponseEntity<>(json, HttpStatus.OK);
     }
+
+    @PostMapping("/submitResignation")
+    private ResponseEntity<JsonNode> submitResignation(@RequestBody JsonNode json){
+        JsonNode respond = userClient.postRequest(json, "/submitResignation");
+        return new ResponseEntity<>(respond, HttpStatus.OK);
+    }
 }

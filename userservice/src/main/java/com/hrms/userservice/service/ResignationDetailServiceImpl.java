@@ -20,8 +20,9 @@ public class ResignationDetailServiceImpl implements ResignationDetailService {
     @Override
     public ResignationDetail save(JsonNode json) {
         ResignationDetail resignation = new ResignationDetail();
+        
         // find emp by empcode
-        Employee emp = employeeService.findByEmpCode(json.get("empCode").asText());
+        Employee emp = employeeService.findByEmailId(json.get("uId").asLong());
         resignation.setEmpCode(emp.getEmpCode());
         resignation.setEmpName(emp.getName());
         resignation.setApproverEmpCode(emp.getApproverCode());

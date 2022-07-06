@@ -104,4 +104,10 @@ public class UserViewController {
 		model.addAttribute("uId", uId);
 		return "leave";
 	 }
+
+	 @GetMapping("/resignation/{uId}")
+	 private String resignation(@PathVariable int uId, Model model){
+		model.addAttribute("uId", uId);
+		return "resignation";
+	 }
 }
