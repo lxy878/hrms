@@ -6,6 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.hrms.gateservice.domain.User;
 import com.hrms.gateservice.restclients.AdminClient;
@@ -42,4 +43,11 @@ public class AdminViewController {
         model.addAttribute("uId", user.getId());
         return "leaveAdmin";
     }
+
+    @GetMapping("/admin/resignationApprove/{uId}")
+    private String resignationApprove(@PathVariable Long uId, Model model){
+        model.addAttribute("uId", uId);
+        return "resignationAdmin";
+    }
+    
 }

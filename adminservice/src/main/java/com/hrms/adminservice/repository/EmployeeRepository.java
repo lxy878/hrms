@@ -6,4 +6,5 @@ import com.hrms.adminservice.domain.Employee;
 
 public interface EmployeeRepository extends JpaRepository<Employee,Long>{
     public Employee findByEmailId(Long uId);
+    public Employee findByEmpCode(String empCode);
 }

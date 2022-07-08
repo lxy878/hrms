@@ -99,8 +99,7 @@
               <div id="Demo2" class="w3-hide w3-container">
                 <p>Some other text..</p>
               </div>
-              <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i
-                  class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+              <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/admin/resignationApprove/${uId}" class="fa fa-users fa-fw w3-margin-right"></i><a href="/admin/resignationApprove/${uId}" style="text-decoration: none">Resignation Approve</a></button>
               <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i
                   class="fa fa-users fa-fw w3-margin-right"></i><a href="/admin/register"
                   style="text-decoration: none">Register Employee</a></button>

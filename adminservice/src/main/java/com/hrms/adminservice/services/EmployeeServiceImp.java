@@ -59,5 +59,11 @@ public class EmployeeServiceImp implements EmployeeService{
     public Employee findByEmailId(Long uId) {
         return employeeRepository.findByEmailId(uId);
     }
+
+    @Override
+    public Employee findByEmpCode(String empCode) {
+        
+        return employeeRepository.findByEmpCode(empCode);
+    }
     
 }
