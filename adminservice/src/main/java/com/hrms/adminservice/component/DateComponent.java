@@ -51,4 +51,9 @@ public class DateComponent {
 
         return newDate;
     }
+
+    public int compareDates(Long fromDate, Long toDate){
+        long days = toDate-fromDate;
+        return (int) TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS)+1;
+    }
 }

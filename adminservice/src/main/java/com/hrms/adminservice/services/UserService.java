@@ -10,4 +10,6 @@ public interface UserService{
 	public void deleteUserById(long uId);
 	public User findById(long uId);
 	public User findByName(String userName);
+	public void deleteById(Long id);
+	public void deactivateById(Long id);
 }

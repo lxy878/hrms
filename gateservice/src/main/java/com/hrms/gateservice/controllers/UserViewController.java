@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hrms.gateservice.domain.User;
+import com.hrms.gateservice.restclients.AdminClient;
 import com.hrms.gateservice.restclients.UserClient;
 import com.hrms.gateservice.services.UserService;
 
@@ -36,10 +37,16 @@ public class UserViewController {
 	@Autowired
 	UserClient userClient;
 
+	@Autowired
+	AdminClient adminClient;
+
     @RequestMapping(value="/login")
 	public String login(@RequestParam(required=false) String logout, @RequestParam(required=false) String error, HttpServletRequest httpServletRequest,
 			HttpServletResponse httpServletResponse, Model model) {
 		String message = "";
+		
+		// resignation check
+		adminClient.getRequest("/resingationCheck");
 		if(error!=null) {
 			message="Invalid Credentials"; 
 		}
@@ -62,6 +69,8 @@ public class UserViewController {
 			message="Logout";
 			return "login";
 		}
+	
+        // return new ResponseEntity<>(respond, HttpStatus.OK);
 		model.addAttribute("Message", message);
 		return "login";
 		

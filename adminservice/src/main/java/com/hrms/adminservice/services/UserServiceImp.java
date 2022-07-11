@@ -58,5 +58,20 @@ public class UserServiceImp implements UserService{
         
         return userRepository.findByName(userName);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public void deactivateById(Long id){
+        User user = findById(id);
+        // cut relationship first
+        user.setRoles(null);
+        userRepository.save(user);
+        // then delete
+        deleteById(id);
+    }
     
 }

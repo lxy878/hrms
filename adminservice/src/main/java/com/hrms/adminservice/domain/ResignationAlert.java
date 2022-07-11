@@ -14,6 +14,8 @@ public class ResignationAlert {
     private String lastWorkingDate;
     private Long uId;
 
+    public ResignationAlert(){}
+    
     public ResignationAlert(String lastWorkingDate, Long uId) {
         this.lastWorkingDate = lastWorkingDate;
         this.uId = uId;

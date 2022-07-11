@@ -6,4 +6,5 @@ import com.hrms.adminservice.domain.User;
 
 public interface UserRepository extends JpaRepository<User,Long>{
     public User findByName(String name);
+    public void deleteById(Long id);
 }

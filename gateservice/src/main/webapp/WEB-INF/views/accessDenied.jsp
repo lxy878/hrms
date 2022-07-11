@@ -11,7 +11,7 @@
 <body>
     <div align="center">
         <p>${Message}</p>
-        <a href="${pageContext.request.contextPath}/home">Home</a>
+        <a href="${pageContext.request.contextPath}/">Home</a>
     </div>
 </body>
 </html>

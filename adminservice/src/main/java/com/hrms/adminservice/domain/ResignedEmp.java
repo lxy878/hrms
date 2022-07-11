@@ -18,6 +18,8 @@ public class ResignedEmp {
     private int landline;
     private String address;
 
+    public ResignedEmp(){}
+    
     public ResignedEmp(String name, String empCode, String email, int mobile, int landline, String address) {
         this.name = name;
         this.empCode = empCode;

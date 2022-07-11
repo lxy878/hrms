@@ -34,6 +34,11 @@ public class DateComponent {
         return (int) TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS)+1;
     }
 
+    public int compareDates(Long fromDate, Long toDate){
+        long days = toDate-fromDate;
+        return (int) TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS)+1;
+    }
+
     public String incrementDay(String date, int numberOfDay){
         return LocalDate.parse(date).plusDays(numberOfDay).toString();
     }
