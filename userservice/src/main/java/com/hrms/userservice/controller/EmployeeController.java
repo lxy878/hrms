@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hrms.userservice.domain.Employee;
 import com.hrms.userservice.service.EmployeeService;
 
+
 @RestController
 public class EmployeeController {
     
@@ -20,4 +21,10 @@ public class EmployeeController {
         Employee approver = employeeService.findByEmpCode(emp.getApproverCode());
         return approver;
     }
+
+    @GetMapping("/getEmployee/{uId}")
+    private Employee getEmp(@PathVariable Long uId){
+        return employeeService.findByEmailId(uId);
+    }
+
 }

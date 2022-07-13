@@ -5,12 +5,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 public class Hash{
     
     public static void main(String[] args) {
-        //  BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        //  System.out.println("encode: "+ encoder.encode("abc"));
+         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+         String pw = encoder.encode("abc");
+         System.out.println(encoder.matches("abc", pw));
         
         // Date toDate = stringToDate("2022/06/29", "yyyy/mm/dd");
         // Date fromDate = stringToDate("2022/06/30", "yyyy/mm/dd");

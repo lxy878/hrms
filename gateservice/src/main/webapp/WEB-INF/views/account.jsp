@@ -15,7 +15,7 @@ pageEncoding="ISO-8859-1"%>
 <link rel="stylesheet" href="/css/calendar.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/js/home.js"></script>
+<script src="/js/account.js"></script>
 </head>
 <body class="w3-theme-l5">
 
@@ -104,78 +104,29 @@ pageEncoding="ISO-8859-1"%>
     </div>
     
     <!-- Middle Column -->
-    <div class="w3-col m7">
+    <div class="w3-col m9">
 
-       <div class="w3-row-padding">
+      <div class="w3-row-padding">
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h3 class="w3-opacity">My Attendance</h3>
-               <hr class="w3-clear">
-              <table id="attendance-table">
-                <tr>
-                  <th>Date</th>
-                  <th>In</th>
-                  <th>Out</th>
-                  <th>Attendance</th>
-                </tr>
-              </table>
-              <br>
-              <%-- calendar --%>
-              <%-- <div class="wrapper">
-                <div class="container-calendar">
-                    <h3 id="monthAndYear"></h3>
-                    <div class="button-container-calendar">
-                        <button id="previous" onclick="previous()">&#8249;</button>
-                        <button id="next" onclick="next()">&#8250;</button>
-                    </div>
-                    <table class="table-calendar" id="calendar" data-lang="en">
-                        <thead id="thead-month"></thead>
-                        <tbody id="calendar-body"></tbody>
-                    </table>
-                    <div class="footer-container-calendar">
-                        <label for="month">Jump To: </label>
-                        <select id="month" onchange="jump()">
-                            <option value=0>Jan</option>
-                            <option value=1>Feb</option>
-                            <option value=2>Mar</option>
-                            <option value=3>Apr</option>
-                            <option value=4>May</option>
-                            <option value=5>Jun</option>
-                            <option value=6>Jul</option>
-                            <option value=7>Aug</option>
-                            <option value=8>Sep</option>
-                            <option value=9>Oct</option>
-                            <option value=10>Nov</option>
-                            <option value=11>Dec</option>
-                        </select>
-                        <select id="year" onchange="jump()"></select>       
-                    </div>
+              <h3 class="w3-opacity">Reset Password</h3>
+              <hr class="w3-clear">
+                <div id="setPassword" align="center">
+                  Old Password: <input class="data" type="text" name="oldPassword" > <br><br>
+                  New Password: <input class="data" type="text" name="newPassword" > <br><br>
+                  <button id="submit">Submit</button>
                 </div>
-              </div> --%>
-              <%-- end calendar --%>
+              <br>
             </div>
           </div>
         </div>
       </div>
-      <script src="/js/calendar.js"></script>
-
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <h4>Upcoming Events:</h4>
-        <hr class="w3-clear">
-          <div class="w3-container">
-            <p><strong>Holiday, Friday 15:00</strong></p>
-            <p></p>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-        <br>
-      </div>
-      
       
     <!-- End Middle Column -->
     </div>
     
-    <!-- Right Column -->
+    <%-- <!-- Right Column -->
     <div class="w3-col m2">
       <div class="w3-card w3-round w3-white w3-center">
         <div class="w3-container">
@@ -191,7 +142,7 @@ pageEncoding="ISO-8859-1"%>
       <br>
       
     <!-- End Right Column -->
-    </div>
+    </div> --%>
     
   <!-- End Grid -->
   </div>

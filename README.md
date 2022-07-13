@@ -47,3 +47,9 @@ Approver/Admin:
 
 System:
     user account is invalid after the date resignation
+
+Task 6
+
+Reset Password
+Company Policy
+Birthday Alert

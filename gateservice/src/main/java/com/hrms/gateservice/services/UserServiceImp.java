@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.hrms.gateservice.domain.User;
@@ -44,4 +45,15 @@ public class UserServiceImp implements UserService{
         return userRepository.findByName(userName);
     }
     
+    @Override
+    public String updatePassword(User user, String oldPassword, String newPassword){
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        if(!encoder.matches(oldPassword, user.getPassword())){
+            return "old password is wrong";
+        }
+        
+        user.setPassword(encoder.encode(newPassword));
+        userRepository.save(user);
+        return "Password is changed";
+    }
 }

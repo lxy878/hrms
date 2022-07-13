@@ -70,7 +70,6 @@ public class UserViewController {
 			return "login";
 		}
 	
-        // return new ResponseEntity<>(respond, HttpStatus.OK);
 		model.addAttribute("Message", message);
 		return "login";
 		
@@ -118,5 +117,19 @@ public class UserViewController {
 	 private String resignation(@PathVariable int uId, Model model){
 		model.addAttribute("uId", uId);
 		return "resignation";
+	 }
+
+	 @GetMapping("/empInfo/{uId}")
+	 private String empInfo(@PathVariable int uId, Model model){
+		User user = userService.findById(uId);
+		model.addAttribute("uId", uId);
+		model.addAttribute("email", user.getEmail());
+		return "info";
+	 }
+
+	 @GetMapping("/accountInfo/{uId}")
+	 private String accountInfo(@PathVariable int uId, Model model){
+		model.addAttribute("uId", uId);
+		return "account";
 	 }
 }

@@ -12,10 +12,9 @@ pageEncoding="ISO-8859-1"%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel='stylesheet' href='/css/home.css'>
-<link rel="stylesheet" href="/css/calendar.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/js/home.js"></script>
+<script src="/js/info.js"></script>
 </head>
 <body class="w3-theme-l5">
 
@@ -25,9 +24,9 @@ pageEncoding="ISO-8859-1"%>
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="/" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Logo</a>
   <%-- User Info --%>
-  <a href="/empInfo/${uId}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="User Info Settings"><i class="fa fa-address-card"></i></a>
-  <%-- account --%>
-  <a href="/accountInfo/${uId}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-cog"></i></a>
+  <a href="/info/${uId}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="User Info Settings"><i class="fa fa-address-card"></i></a>
+  <%-- password --%>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Password Settings"><i class="fa fa-cog"></i></a>
   <a href="/login?logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
     Log Out
   </a>
@@ -68,11 +67,37 @@ pageEncoding="ISO-8859-1"%>
       <!-- Accordion -->
       <div class="w3-card w3-round">
         <div class="w3-white">
+          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
+          <div id="Demo1" class="w3-hide w3-container">
+            <p>Some text..</p>
+          </div>
+          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
+          <div id="Demo2" class="w3-hide w3-container">
+            <p>Some other text..</p>
+          </div>
           <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/leave/${uId}" class="fa fa-map fa-fw w3-margin-right"></i><a href="/leave/${uId}" style="text-decoration: none">Leaves</a></button>
           <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/resignation/${uId}" class="fa fa-users fa-fw w3-margin-right"></i><a href="/resignation/${uId}" style="text-decoration: none">Resignation</a></button>
-          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/leave/${uId}" class="fa fa-file-pdf-o fa-fw w3-margin-right"></i><a href="/img/cp.pdf" style="text-decoration: none">Company Policy</a></button>
         <div id="Demo3" class="w3-hide w3-container">
          <div class="w3-row-padding">
+         <br>
+           <div class="w3-half">
+             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
+           <div class="w3-half">
+             <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
+           </div>
          </div>
           </div>
         </div>      
@@ -99,98 +124,41 @@ pageEncoding="ISO-8859-1"%>
         </div>
       </div>
       <br>
-    
     <!-- End Left Column -->
     </div>
     
     <!-- Middle Column -->
     <div class="w3-col m7">
 
-       <div class="w3-row-padding">
-        <div class="w3-col m12">
-          <div class="w3-card w3-round w3-white">
-            <div class="w3-container w3-padding">
-              <h3 class="w3-opacity">My Attendance</h3>
-               <hr class="w3-clear">
-              <table id="attendance-table">
-                <tr>
-                  <th>Date</th>
-                  <th>In</th>
-                  <th>Out</th>
-                  <th>Attendance</th>
-                </tr>
-              </table>
-              <br>
-              <%-- calendar --%>
-              <%-- <div class="wrapper">
-                <div class="container-calendar">
-                    <h3 id="monthAndYear"></h3>
-                    <div class="button-container-calendar">
-                        <button id="previous" onclick="previous()">&#8249;</button>
-                        <button id="next" onclick="next()">&#8250;</button>
-                    </div>
-                    <table class="table-calendar" id="calendar" data-lang="en">
-                        <thead id="thead-month"></thead>
-                        <tbody id="calendar-body"></tbody>
-                    </table>
-                    <div class="footer-container-calendar">
-                        <label for="month">Jump To: </label>
-                        <select id="month" onchange="jump()">
-                            <option value=0>Jan</option>
-                            <option value=1>Feb</option>
-                            <option value=2>Mar</option>
-                            <option value=3>Apr</option>
-                            <option value=4>May</option>
-                            <option value=5>Jun</option>
-                            <option value=6>Jul</option>
-                            <option value=7>Aug</option>
-                            <option value=8>Sep</option>
-                            <option value=9>Oct</option>
-                            <option value=10>Nov</option>
-                            <option value=11>Dec</option>
-                        </select>
-                        <select id="year" onchange="jump()"></select>       
-                    </div>
-                </div>
-              </div> --%>
-              <%-- end calendar --%>
+      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+        <div id="empInfo">
+            <h3>Employee Information</h3>
+            <input class="data" type="number" name="id" hidden readonly>
+            Name: <input class="data" type="text" name="name" required="required" readonly=true> <br>
+            Employee Code: <input class="data" type="text" name="empCode" required="required" readonly=true> <br>
+            Email: <input class="data" type="text" name="email" value=${email} readonly=true> <br>
+            SSN: <input class="data" type="number" name="ssn" readonly=true> <br>
+            Mobile: <input class="data" type="number" name="mobile" readonly=true> <br>
+            Alternate Mobile: <input class="data" type="number" name="alternateMobile" readonly=true> <br>
+            Birthdate: <input class="data" type="date" name="birthDate" readonly=true> <br>
+            Marital Status: <input class="data" type="text" name="maritalStatus" readonly=true> <br>
+            <div id="address">
+                <h4>Address Details</h4>
+                <input class="data" type="number" name="id" hidden readonly=true>
+                Residence Number: <input class="data" type="text" name="residenceNumber" readonly=true> <br>
+                Locality: <input class="data" type="text" name="locality" readonly=true> <br>
+                Street: <input class="data" type="text" name="street" readonly=true> <br>
+                City: <input class="data" type="text" name="city" readonly=true> <br>
+                State: <input class="data" type="text" name="state" readonly=true> <br>
+            Zip Code: <input class="data" type="number" name="zipCode" readonly=true> <br>
             </div>
-          </div>
+            Supervisor: <input class="data" type="text" name="approverCode" placeholder="Emp Code" readonly=true> <br>
+            <%-- <input type="submit" value="update" id="update"><br> --%>
+            <br>
         </div>
       </div>
-      <script src="/js/calendar.js"></script>
-
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <h4>Upcoming Events:</h4>
-        <hr class="w3-clear">
-          <div class="w3-container">
-            <p><strong>Holiday, Friday 15:00</strong></p>
-            <p></p>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-        <br>
-      </div>
-      
       
     <!-- End Middle Column -->
-    </div>
-    
-    <!-- Right Column -->
-    <div class="w3-col m2">
-      <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-        </div>
-      </div>
-      <br>
-      
-    <!-- End Right Column -->
     </div>
     
   <!-- End Grid -->

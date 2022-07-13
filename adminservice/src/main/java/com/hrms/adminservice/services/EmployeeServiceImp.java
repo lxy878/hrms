@@ -35,6 +35,7 @@ public class EmployeeServiceImp implements EmployeeService{
         newEmp.setName(name);
         newEmp.setEmpCode(empCode);
         newEmp.setSSN(emp.get("ssn").asInt());
+        newEmp.setMobile(emp.get("mobile").asInt());
         newEmp.setAlternateMobile(emp.get("alternateMobile").asInt());
         newEmp.setBirthDate(emp.get("birthDate").asText());
         newEmp.setMaritalStatus(emp.get("maritalStatus").asText());

@@ -10,4 +10,5 @@ public interface UserService{
 	public void deleteUserById(long uId);
 	public User findById(long uId);
 	public User findByName(String userName);
+	public String updatePassword(User user, String oldPassword, String newPassword);
 }
