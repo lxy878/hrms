@@ -24,9 +24,9 @@ pageEncoding="ISO-8859-1"%>
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="/" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Logo</a>
   <%-- User Info --%>
-  <a href="/info/${uId}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="User Info Settings"><i class="fa fa-address-card"></i></a>
-  <%-- password --%>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Password Settings"><i class="fa fa-cog"></i></a>
+  <a href="/empInfo/${uId}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="User Info Settings"><i class="fa fa-address-card"></i></a>
+  <%-- account --%>
+  <a href="/accountInfo/${uId}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-cog"></i></a>
   <a href="/login?logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Log Out">
     Log Out
   </a>
@@ -67,37 +67,11 @@ pageEncoding="ISO-8859-1"%>
       <!-- Accordion -->
       <div class="w3-card w3-round">
         <div class="w3-white">
-          <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
-          <div id="Demo1" class="w3-hide w3-container">
-            <p>Some text..</p>
-          </div>
-          <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
-          <div id="Demo2" class="w3-hide w3-container">
-            <p>Some other text..</p>
-          </div>
           <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/leave/${uId}" class="fa fa-map fa-fw w3-margin-right"></i><a href="/leave/${uId}" style="text-decoration: none">Leaves</a></button>
           <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/resignation/${uId}" class="fa fa-users fa-fw w3-margin-right"></i><a href="/resignation/${uId}" style="text-decoration: none">Resignation</a></button>
+          <button class="w3-button w3-block w3-theme-l1 w3-left-align"><i href="/leave/${uId}" class="fa fa-file-pdf-o fa-fw w3-margin-right"></i><a href="/img/cp.pdf" style="text-decoration: none">Company Policy</a></button>
         <div id="Demo3" class="w3-hide w3-container">
          <div class="w3-row-padding">
-         <br>
-           <div class="w3-half">
-             <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
-           <div class="w3-half">
-             <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
-           </div>
          </div>
           </div>
         </div>      
@@ -128,7 +102,7 @@ pageEncoding="ISO-8859-1"%>
     </div>
     
     <!-- Middle Column -->
-    <div class="w3-col m7">
+    <div class="w3-col m9">
 
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
         <div id="empInfo">
@@ -170,11 +144,7 @@ pageEncoding="ISO-8859-1"%>
 
 <!-- Footer -->
 <footer class="w3-container w3-theme-d3 w3-padding-16">
-  <h5>Footer</h5>
-</footer>
-
-<footer class="w3-container w3-theme-d5">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <p>Powered by Xiaoyi Liu 2022</p>
 </footer>
  
 <script>

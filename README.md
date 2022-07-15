@@ -53,3 +53,4 @@ Task 6
 Reset Password
 Company Policy
 Birthday Alert
+Events

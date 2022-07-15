@@ -1,11 +1,14 @@
 package com.hrms.userservice.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.hrms.userservice.component.DateComponent;
 import com.hrms.userservice.domain.Address;
 import com.hrms.userservice.domain.Employee;
 import com.hrms.userservice.repository.EmployeeRepository;
@@ -18,6 +21,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Autowired
     AddressService addressService;
+
+    @Autowired
+    DateComponent dateComponent;
 
     @Override
     public Employee findByEmailId(Long id) {
@@ -56,5 +62,13 @@ public class EmployeeServiceImpl implements EmployeeService{
         // if update email, update user
         
         return employeeRepository.save(emp);
+    }
+
+    public List<Employee> getEmployeesByBirthday(){
+        String c =dateComponent.dateTimeToString(LocalDateTime.now(), "MM-dd");
+        String[] parts = c.split("-");
+        String month = parts[0];
+        String date = parts[1];
+        return employeeRepository.findAllByBirthdateAfter(Integer.parseInt(month), Integer.parseInt(date));
     }
 }

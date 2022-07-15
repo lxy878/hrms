@@ -160,15 +160,9 @@ pageEncoding="ISO-8859-1"%>
       </div>
       <script src="/js/calendar.js"></script>
 
-      <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+      <div class="w3-container w3-card w3-white w3-round w3-margin" id="events"><br>
         <h4>Upcoming Events:</h4>
         <hr class="w3-clear">
-          <div class="w3-container">
-            <p><strong>Holiday, Friday 15:00</strong></p>
-            <p></p>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          </div>
-        <br>
       </div>
       
       
@@ -177,15 +171,11 @@ pageEncoding="ISO-8859-1"%>
     
     <!-- Right Column -->
     <div class="w3-col m2">
+
       <div class="w3-card w3-round w3-white w3-center">
-        <div class="w3-container">
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
-          <p>Name's Birthdate: Date</p>
+        <div class="w3-container" id="birthdays">
+          <h4>Upcoming Birthdates:</h4>
+          <hr class="w3-clear">
         </div>
       </div>
       <br>
@@ -202,26 +192,12 @@ pageEncoding="ISO-8859-1"%>
 
 <!-- Footer -->
 <footer class="w3-container w3-theme-d3 w3-padding-16">
-  <h5>Footer</h5>
-</footer>
-
-<footer class="w3-container w3-theme-d5">
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <p>Powered by Xiaoyi Liu 2022</p>
 </footer>
  
 <script>
 // Accordion
-function myFunction(id) {
-  var x = document.getElementById(id);
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-    x.previousElementSibling.className += " w3-theme-d1";
-  } else { 
-    x.className = x.className.replace("w3-show", "");
-    x.previousElementSibling.className = 
-    x.previousElementSibling.className.replace(" w3-theme-d1", "");
-  }
-}
+
 
 // Used to toggle the menu on smaller screens when clicking on the menu button
 function openNav() {

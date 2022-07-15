@@ -80,4 +80,16 @@ public class UserRestController {
         map.put("message", message);
         return map;
     }
+
+    @GetMapping("/getEmployeesWithBirthday")
+    private ResponseEntity<JsonNode> getEmployeesWithBirthday(){
+        JsonNode json = userClient.getRequest("/getEmployeesByBirthday");
+        return new ResponseEntity<>(json, HttpStatus.OK);
+    }
+
+    @GetMapping("/getHolidays")
+    private ResponseEntity<JsonNode> getHolidays(){
+        JsonNode json = userClient.getRequest("/getTop3Holodays");
+        return new ResponseEntity<>(json, HttpStatus.OK);
+    }
 }

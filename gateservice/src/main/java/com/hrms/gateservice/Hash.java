@@ -5,25 +5,23 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 
 public class Hash{
     
-    public static void main(String[] args) {
-         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-         String pw = encoder.encode("abc");
-         System.out.println(encoder.matches("abc", pw));
+    // public static void main(String[] args) {
+    //      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    //      String pw = encoder.encode("abc");
+    //      System.out.println(encoder.matches("abc", pw));
         
-        // Date toDate = stringToDate("2022/06/29", "yyyy/mm/dd");
-        // Date fromDate = stringToDate("2022/06/30", "yyyy/mm/dd");
+    //     // Date toDate = stringToDate("2022/06/29", "yyyy/mm/dd");
+    //     // Date fromDate = stringToDate("2022/06/30", "yyyy/mm/dd");
 
-        // long days = Math.abs(toDate.getTime()-fromDate.getTime());
-        // System.out.println(days);
-        // days = TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS);
+    //     // long days = Math.abs(toDate.getTime()-fromDate.getTime());
+    //     // System.out.println(days);
+    //     // days = TimeUnit.DAYS.convert(days, TimeUnit.MILLISECONDS);
 
-        // System.out.println(LocalDate.parse("2022-06-30").plusDays(1).toString());
-    }
+    //     // System.out.println(LocalDate.parse("2022-06-30").plusDays(1).toString());
+    // }
 
     public static Date stringToDate(String time, String pattern){
         SimpleDateFormat format = new SimpleDateFormat(pattern);

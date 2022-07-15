@@ -30,17 +30,15 @@ public class AdminViewController {
         return "homeAdmin";
     }
 
-    @GetMapping("/admin/register")
-    private String getRegister(){
+    @GetMapping("/admin/register/{uId}")
+    private String getRegister(@PathVariable Long uId, Model model){
+        model.addAttribute("uId", uId);
         return "register";
     }
 
-    @GetMapping("/admin/empLeaves")
-    private String getEmpLeaves(Model model){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String userName = auth.getName();
-        User user = userService.findByName(userName);
-        model.addAttribute("uId", user.getId());
+    @GetMapping("/admin/empLeaves/{uId}")
+    private String getEmpLeaves(@PathVariable Long uId, Model model){
+        model.addAttribute("uId", uId);
         return "leaveAdmin";
     }
 

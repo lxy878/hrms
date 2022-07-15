@@ -1,5 +1,7 @@
 package com.hrms.userservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +27,11 @@ public class EmployeeController {
     @GetMapping("/getEmployee/{uId}")
     private Employee getEmp(@PathVariable Long uId){
         return employeeService.findByEmailId(uId);
+    }
+
+    @GetMapping("/getEmployeesByBirthday")
+    private List<Employee> getEmployeesByBirthday(){
+        return employeeService.getEmployeesByBirthday();
     }
 
 }
