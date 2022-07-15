@@ -14,6 +14,7 @@ $(function(){
             data[$(c).attr("name")] = $(c).val()
         }
         
+        
         $.ajax({
             url: 'http://localhost:8080/submitLeave',
             type:"post",
@@ -24,6 +25,7 @@ $(function(){
         }).done(function(data){
             console.log(data)
             loadLeaveTable()
+            reset()
         }).fail(function (xhr, status, error) {
             console.log(`${xhr.status}: ${xhr.statusText}`)
         })

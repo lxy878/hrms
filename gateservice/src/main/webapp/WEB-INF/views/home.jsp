@@ -11,8 +11,7 @@ pageEncoding="ISO-8859-1"%>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel='stylesheet' href='/css/home.css'>
-<link rel="stylesheet" href="/css/calendar.css">
+<link rel='stylesheet' href='/css/home.css'>  
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/js/home.js"></script>
@@ -158,7 +157,6 @@ pageEncoding="ISO-8859-1"%>
           </div>
         </div>
       </div>
-      <script src="/js/calendar.js"></script>
 
       <div class="w3-container w3-card w3-white w3-round w3-margin" id="events"><br>
         <h4>Upcoming Events:</h4>

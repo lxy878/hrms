@@ -132,7 +132,6 @@ pageEncoding="ISO-8859-1"%>
           </div>
         </div>
       </div>
-      <script src="/js/calendar.js"></script>
 
       <div class="w3-container w3-card w3-white w3-round w3-margin" id="leaveForm">
         <h3 class="w3-opacity">Apply Leave</h3>

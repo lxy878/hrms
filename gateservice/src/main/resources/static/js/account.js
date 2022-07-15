@@ -13,6 +13,7 @@ function changePassword(){
         for(let p of passwords){
             data[$(p).attr("name")] = $(p).val()
         }
+        
         $.ajax({
             url: 'http://localhost:8080/changePassword',
             type: 'POST',
@@ -22,8 +23,17 @@ function changePassword(){
             cache: false
         }).done(function(data){
             alert(data.message)
+            reset()
         }).fail(function (xhr, status, error) {
             console.log(`${xhr.status}: ${xhr.statusText}`)
         })
     })
+
+    function reset(){
+        const passwords = $("#setPassword").children(".data") 
+
+        for(let p of passwords){
+            $(p).val("")
+        }
+    }
 }

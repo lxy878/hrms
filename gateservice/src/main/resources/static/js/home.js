@@ -12,7 +12,6 @@ function getEmployeesWithBirthday(){
         contentType: 'application/json',
         cache: false
     }).done(function(data){
-        console.log(data)
         const birthdays = $('#birthdays')
         let days = ""
         for(let b of data){

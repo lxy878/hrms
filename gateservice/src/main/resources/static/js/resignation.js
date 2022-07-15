@@ -10,7 +10,6 @@ $(function(){
         for(let c of children){
             data[$(c).attr("name")] = $(c).val()
         }
-        console.log(data)
         $.ajax({
             url: 'http://localhost:8080/submitResignation',
             type:"post",
@@ -20,11 +19,19 @@ $(function(){
             cache: false
         }).done(function(data){
             console.log(data)
+            reset()
         }).fail(function (xhr, status, error) {
             console.log(`${xhr.status}: ${xhr.statusText}`)
         })
     })
 })
+
+function reset(){
+    const children = $("#resignationForm").children(".data")
+    for(let c of children){
+        $(c).val("")
+    }
+}
 
 function setDays(){
     const days= countDays($("#appliedDate").val(), $("#lastWorkingDate").val())
